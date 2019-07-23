@@ -8,7 +8,12 @@ const assertEqual = function(actual, expected) {
 };
 
 const eqArrays = function(array1, array2) {
-  for (let i = 0; i < array1.length; i++) {
+  let longestArray = 0;
+  if (array1.length >= array2.length) {
+    longestArray = array1;
+  } else {
+    longestArray = array2;
+  for (let i = 0; i < longestArray.length; i++) {
     if ( array1[i] !== array2[i]) {
       return false;
     }
