@@ -16,9 +16,9 @@ const eqArrays = function(array1, array2) {
 const assertArraysEqual = function(array1, array2) {
   const result = eqArrays(array1,array2);
   if (result) {
-    console.log(`✅ ✅ ✅  Assertion passed: ${array1} === ${array2}`);
+    return `✅ ✅ ✅  Assertion passed: ${array1} === ${array2}`;
   } else {
-    console.log(`❌ ❌ ❌  Assertion failed: ${array1} !== ${array2}`);
+    return `❌ ❌ ❌  Assertion failed: ${array1} !== ${array2}`;
   }
 };
 
@@ -36,6 +36,6 @@ const letterPositions = function(sentence) {
   return results;
 };
 
-console.log(letterPositions('lighthouse in the house'));
-console.log(assertArraysEqual(letterPositions('hello')['l'], [2, 3]));
-console.log(assertArraysEqual(letterPositions('this is sparta')['s'], [3, 6, 8]));
+console.log("1",letterPositions('lighthouse in the house'));
+console.log("2",assertArraysEqual(letterPositions('hello')['l'], [2, 3]));
+console.log("3",assertArraysEqual(letterPositions('this is sparta')['s'], [3, 6, 8]));
