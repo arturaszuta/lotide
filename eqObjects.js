@@ -23,32 +23,37 @@ const eqArrays = function(array1, array2) {
 };
 
 const eqObjects = function(object1, object2) {
-  const obj1Keys = Object.keys(object1);
-  const obj2Keys = Object.keys(object2);
-  if (obj1Keys.length !== obj2Keys.length) {
-    return false;
-  }
-  for (let key of obj1Keys) {
-    if (Array.isArray(object1[key])) {
-      if (!eqArrays(object1[key], object2[key]))
-        return false;
+  if (Object.keys(object1).length !== Object.keys(object2).length) return false;
+
+  for (let element of Object.keys(object1)) {
+    if (Array.isArray(object1[element])) {
+      if (!eqArrays(object1[element],object2[element])) return false;
+      continue;
     }
-    if (!Array.isArray(object1[key]) && object1[key] !== object2[key]) {
-      return false;
+    if (typeof object1[element] === 'object' && !Array.isArray(object1[element])) {
+      return eqObjects(object1[element], object2[element]);
     }
+    if (object1[element] !== object2[element]) return false;
   }
   return true;
 };
+ 
+ 
+ 
   
-const ab = { a: '1', b: '2'};
-const ba = { b: '2', a: '1'};
-const abc = { a: '1', b: '2', c: '3' };
-console.log(assertEqual(eqObjects(ab, ba), true));
-console.log(assertEqual(eqObjects(ab, abc), false));
+// const ab = { a: '1', b: '2'};
+// const ba = { b: '2', a: '1'};
+// const abc = { a: '1', b: '2', c: '3' };
+// console.log(assertEqual(eqObjects(ab, ba), true));
+// console.log(assertEqual(eqObjects(ab, abc), false));
 
-const cd = { c: "1", d: ["2", 3] };
-const dc = { d: ["2", 3], c: "1" };
-const cd2 = { c: "1", d: ["2", 3, 4] };
-console.log(assertEqual(eqObjects(cd, dc), true)); // => true
-console.log(assertEqual(eqObjects(cd, cd2), false)); // => false
+// const cd = { c: "1", d: ["2", 3] };
+// const dc = { d: ["2", 3], c: "1" };
+// const cd2 = { c: "1", d: ["2", 3, 4] };
+console.log(assertEqual(eqObjects({ a: { z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }), true)); // => true
+console.log(assertEqual(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }), false)); // => false
+console.log(assertEqual(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: 1, b: 2 }), false)); // => false
+
+
+
 
