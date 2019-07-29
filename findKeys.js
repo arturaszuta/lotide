@@ -7,7 +7,7 @@ const assertEqual = function(actual, expected) {
   }
 };
 
-const findKey = function(object, callback) {
+const findKeys = function(object, callback) {
   const objArray = Object.keys(object);
   for (let arrayElement of objArray) {
     if (callback(object[arrayElement])) {
@@ -17,7 +17,7 @@ const findKey = function(object, callback) {
 };
 
 // TEST ONE
-const result1 = findKey({
+const result1 = findKeys({
   "Blue Hill": { stars: 1 },
   "Akaleri":   { stars: 3 },
   "noma":      { moonName: 'Victorio' },
@@ -29,7 +29,7 @@ const result1 = findKey({
 assertEqual(result1, 'noma');
 
 //TEST TWO
-const result2 = findKey({
+const result2 = findKeys({
   "Blue Hill": { stars: 1 },
   "Akaleri":   { stars: 3 },
   "noma":      { stars: 2 },
@@ -41,7 +41,7 @@ const result2 = findKey({
 assertEqual(result2, 'noma');
 
 //TEST THREE
-const result3 = findKey({
+const result3 = findKeys({
   "Blue Hill": { stars: 1 },
   "Akaleri":   { stars: 3 },
   "noma":      { stars: 2 },
@@ -51,3 +51,5 @@ const result3 = findKey({
 }, x => x.stars === 5);
 
 assertEqual(result3, 'Akelarre');
+
+module.exports = findKeys;

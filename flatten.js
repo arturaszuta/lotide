@@ -34,7 +34,10 @@ const flatten = function(inputArray) {
   return answerArray;
 };
 
+module.exports = flatten;
+
 console.log(flatten([1, 2, [3, 4], 5, [6]]));
 console.log(assertArraysEqual(flatten([1, 2, [3, 4], 5, [6]]), [1,2,3,4,5,6]));
 console.log(assertArraysEqual(flatten([1, 2, [3, 4], 5, [6]]), [1,3,4,5,6]));
 console.log(assertArraysEqual(flatten([1, 2, [3, 4], 5, [6],['bob', true]]), [1,2,3,4,5,6, 'bob', true]));
+console.log(assertArraysEqual(flatten([[[[[[[[[[1]]]]]]]]]]), [1]));

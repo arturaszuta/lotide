@@ -39,3 +39,5 @@ const results = map(words, word => word[0]);
 console.log(results);
 
 assertArraysEqual(results, ['l', 'a', 'b', 's']);
+
+module.exports = map;

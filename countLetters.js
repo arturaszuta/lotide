@@ -23,3 +23,5 @@ const countLetters = function(word) {
 const test = countLetters('This is sparta');
 console.log(assertEqual(test['s'], 3));
 
+module.exports = countLetters;
+

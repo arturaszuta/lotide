@@ -41,3 +41,5 @@ console.log(without(["1", "2", "3", "bob", "thomas", true], [1, 2, "3"]));
 
 console.log(assertArraysEqual(without(["1", "2", "3"], [1, 2, "3"]), ['1', '2']));
 console.log(assertArraysEqual(without(["1", "2", "3", "bob", "thomas", true], [1, 2, "3", true, "thomas"]), ["1", "2", "bob"]));
+
+module.exports = without;
