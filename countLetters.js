@@ -1,12 +1,3 @@
-const assertEqual = function(actual, expected) {
-
-  if (actual === expected) {
-    console.log(`✅ ✅ ✅  Assertion passed: ${actual} === ${expected}`);
-  } else {
-    console.log(`❌ ❌ ❌  Assertion failed: ${actual} !== ${expected}`);
-  }
-};
-
 const countLetters = function(word) {
   let answerObject = {};
   const noSpaces = word.split(' ').join('').toLowerCase();
@@ -20,8 +11,7 @@ const countLetters = function(word) {
   return answerObject;
 };
 
-const test = countLetters('This is sparta');
-console.log(assertEqual(test['s'], 3));
+console.log(countLetters('sparta'));
 
 module.exports = countLetters;
 
