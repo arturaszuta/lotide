@@ -1,17 +1,4 @@
-const eqArrays = function(array1, array2) {
-  let longestArray = 0;
-  if (array1.length >= array2.length) {
-    longestArray = array1;
-  } else {
-    longestArray = array2;
-  }
-  for (let i = 0; i < longestArray.length; i++) {
-    if (array1[i] !== array2[i]) {
-      return false;
-    }
-  }
-  return true;
-};
+const eqArrays = require('./eqArrays');
 
 const assertArraysEqual = function(array1, array2) {
   const result = eqArrays(array1,array2);
@@ -22,8 +9,4 @@ const assertArraysEqual = function(array1, array2) {
   }
 };
 
-
-
-assertArraysEqual(['hi', 'my', 'name'], ['hi', 'my', 3, 'name']);
-assertArraysEqual([1,2,34,5,'bob'], [1,2,34,5,'bob']);
-assertArraysEqual(['hi', 2, false], ['hi', 2, false]);
+module.exports = assertArraysEqual;
